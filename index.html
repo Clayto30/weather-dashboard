@@ -4,11 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/51d17c80b0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
-    
+    <header>
+        <h1 class="bg-dark text-white text-center">Weather Dashboard</h1>
+    </header>
+    <div class="row">
+        <form>
+            <div class="form-group">
+                <label for="citySearch" class="form-label"><h3>Search for a City :</h3></label>
+                <input class="form-control" id="citySearch">
+                <button type="submit" class="btn btn-primary" id="btnSearch"><i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item">Hard coded city</li>
+            </ul>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">City 3/13/2021</h5>
+              <p class="card-text">Temperature:</p>
+              <p class="card-text">Humidity:</p>
+              <p class="card-text">Wind Speed:</p>
+              <p class="card-text">UV Index: <span class ="badge badge-success">num</span></p>
+            </div>
+        </div>
+        <div>
+            <h2>
+                5-Day Forecast:
+            </h2>
+            <div>
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">3/15/2021</h5>
+                        <p class="card-text">Temp:</p>
+                        <p class="card-text">Humidity:</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
