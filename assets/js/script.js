@@ -13,6 +13,10 @@ var firstCall = function () {
         if (response.ok) {
             response.json().then(function (data) {
                 $(".city-card").append(cityName + " (" + currentDate + ")");
+                //$('#theDiv').prepend('<img id="theImg" src="theImg.png" />')
+                //$('#theDiv').prepend($('<img>',{id:'theImg',src:'theImg.png'}))
+                //console.log(data.weather.icon)
+                //$("#img0").append("<img src='https://openweathermap.org/img/wn/'" + data.weather.icon + "2x.png>")
                 $(".hum0").append(data.main.humidity + "%");
                 $(".temp0").append(data.main.temp + " F");
                 $(".wind0").append(data.wind.speed + " MPH");
@@ -36,28 +40,28 @@ var secondCall = function () {
                 $(".badge").text(data.current.uvi)
                 if (data.current.uvi < 3) {
                     $(".badge")
-                    .removeClass("badge-danger badge-warning")
-                    .addClass("badge-success")
+                        .removeClass("badge-danger badge-warning")
+                        .addClass("badge-success")
                 } else if (data.current.uvi > 5) {
                     $(".badge")
-                    .removeClass("badge-success badge-warning")
-                    .addClass("badge-danger")
+                        .removeClass("badge-success badge-warning")
+                        .addClass("badge-danger")
                 } else {
                     $(".badge")
-                    .removeClass("badge-success badge-danger")
-                    .addClass("badge-warning")
+                        .removeClass("badge-success badge-danger")
+                        .addClass("badge-warning")
                 }
                 // append temp & humidity to forecast cards
                 $(".temp1").append(" " + data.daily[0].temp.day + "F")
-                $(".hum1").append(" " + data.daily[0].humidity +"%")
+                $(".hum1").append(" " + data.daily[0].humidity + "%")
                 $(".temp2").append(" " + data.daily[1].temp.day + "F")
-                $(".hum2").append(" " + data.daily[1].humidity +"%")
+                $(".hum2").append(" " + data.daily[1].humidity + "%")
                 $(".temp3").append(" " + data.daily[2].temp.day + "F")
-                $(".hum3").append(" " + data.daily[2].humidity +"%")
+                $(".hum3").append(" " + data.daily[2].humidity + "%")
                 $(".temp4").append(" " + data.daily[3].temp.day + "F")
-                $(".hum4").append(" " + data.daily[3].humidity +"%")
+                $(".hum4").append(" " + data.daily[3].humidity + "%")
                 $(".temp5").append(" " + data.daily[4].temp.day + "F")
-                $(".hum5").append(" " + data.daily[4].humidity +"%")
+                $(".hum5").append(" " + data.daily[4].humidity + "%")
             })
         } else {
             alert("It didn't work! Sorry :(")
@@ -77,3 +81,22 @@ $(".day2-card").append(day2)
 $(".day3-card").append(day3)
 $(".day4-card").append(day4)
 $(".day5-card").append(day5)
+// search for the city in your localStorage
+$("li").on("click", function () {
+    var savedCity = $("li").text();
+    var apiVariableSaved = "https://api.openweathermap.org/data/2.5/weather?q=" + savedCity + "&units=imperial&appid=8c80d8298e030c2bcd364a2cd23ed526"
+    fetch(apiVariableSaved).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data) {
+                $(".city-card").append(savedCity + " (" + currentDate + ")");
+                $(".hum0").append(data.main.humidity + "%");
+                $(".temp0").append(data.main.temp + " F");
+                $(".wind0").append(data.wind.speed + " MPH");
+                dataLat = data.coord.lat;
+                dataLon = data.coord.lon;
+                localStorage.setItem("cities", savedCity);
+                secondCall(dataLat, dataLon);
+            })
+        }
+    })
+});
