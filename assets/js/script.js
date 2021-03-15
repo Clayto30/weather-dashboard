@@ -1,4 +1,9 @@
-//let uvNum = ""
+var currentDate = moment().format("M/D/YYYY")
+let day1 = moment().add(1, 'days').format("M/D/YYYY")
+let day2 = moment().add(2, 'days').format("M/D/YYYY")
+let day3 = moment().add(3, 'days').format("M/D/YYYY")
+let day4 = moment().add(4, 'days').format("M/D/YYYY")
+let day5 = moment().add(5, 'days').format("M/D/YYYY")
 $(".list-group").append($("<li>")
     .text(localStorage.getItem("cities"))
     .addClass("list-group-item"));
@@ -7,20 +12,17 @@ var firstCall = function () {
     fetch(apiVariable).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                $(".city-card").append(cityName);
+                $(".city-card").append(cityName + " (" + currentDate + ")");
                 $(".hum0").append(data.main.humidity + "%");
-                //console.log("the temperature is " + data.main.temp + " F");
                 $(".temp0").append(data.main.temp + " F");
                 $(".wind0").append(data.wind.speed + " MPH");
-                // console.log("the wind speed is " + data.wind.speed);
-                // console.log(data.weather.icon);
                 dataLat = data.coord.lat;
                 dataLon = data.coord.lon;
                 localStorage.setItem("cities", cityName);
                 secondCall(dataLat, dataLon);
             })
         } else {
-            alert("C'mon! Put in a real US city!!!")
+            alert("C'mon! Put in a real city!!!")
         }
 
     });
@@ -31,21 +33,36 @@ var secondCall = function () {
     fetch(apiFiveVariable).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data)
-                console.log(data.current.uvi)
                 $(".badge").text(data.current.uvi)
+                console.log(data.daily[0].temp.day)
+                console.log(data.daily[0].humidity)
+                // append temp & humidity to forecast cards
+                $(".temp1").append(" " + data.daily[0].temp.day + "F")
+                $(".hum1").append(" " + data.daily[0].humidity +"%")
+                $(".temp2").append(" " + data.daily[1].temp.day + "F")
+                $(".hum2").append(" " + data.daily[1].humidity +"%")
+                $(".temp3").append(" " + data.daily[2].temp.day + "F")
+                $(".hum3").append(" " + data.daily[2].humidity +"%")
+                $(".temp4").append(" " + data.daily[3].temp.day + "F")
+                $(".hum4").append(" " + data.daily[3].humidity +"%")
+                $(".temp5").append(" " + data.daily[4].temp.day + "F")
+                $(".hum5").append(" " + data.daily[4].humidity +"%")
             })
         } else {
-            console.log("It didn't work!")
+            alert("It didn't work! Sorry :(")
         };
     });
 }
 // get the search term when button is clicked and put into api call 
 $("button").on("click", function () {
     event.preventDefault();
-    console.log("the button was clicked");
-    console.log(this);
     cityName = $("input").val()
     console.log(cityName);
     firstCall();
 });
+// append 5 dates to the forecast cards
+$(".day1-card").append(day1)
+$(".day2-card").append(day2)
+$(".day3-card").append(day3)
+$(".day4-card").append(day4)
+$(".day5-card").append(day5)

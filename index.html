@@ -23,9 +23,10 @@
                     <label for="citySearch" class="form-label row">
                         <h3>Search for a City :</h3>
                     </label>
-                    <div class="row"><input class="form-control col-11" id="citySearch">
-                    <button type="submit" class="btn btn-primary col-1" id="btnSearch"><i class="fas fa-search"></i>
-                    </button></div>
+                    <div class="row"><input class="form-control col-10" id="citySearch">
+                        <button type="submit" class="btn btn-primary col-2" id="btnSearch"><i class="fas fa-search"></i>
+                        </button>
+                    </div>
                 </div>
             </form>
             <div>
@@ -35,7 +36,7 @@
             </div>
         </div>
         <div class="col-8">
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <div class="card-body">
                     <h5 class="city-card card-title"></h5>
                     <p class="temp0 card-text">Temperature: </p>
@@ -44,44 +45,44 @@
                     <p class="card-text">UV Index: <span class="badge badge-success"></span></p>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <h2 class="col-12">
+                5-Day Forecast:
+            </h2>
             <div>
-                <h2>
-                    5-Day Forecast:
-                </h2>
-                <div>
-                    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">3/15/2021</h5>
-                            <p class="card-text">Temp:</p>
-                            <p class="card-text">Humidity:</p>
-                        </div>
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="day1-card card-title"></h5>
+                        <p class="temp1 card-text">Temp:</p>
+                        <p class="hum1 card-text">Humidity:</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="day2-card card-title"></h5>
+                        <p class="temp2 card-text">Temp:</p>
+                        <p class="hum2 card-text">Humidity:</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="day3-card card-title"></h5>
+                        <p class="temp3 card-text">Temp:</p>
+                        <p class="hum3 card-text">Humidity:</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="day4-card card-title"></h5>
+                        <p class="temp4 card-text">Temp:</p>
+                        <p class="hum3 card-text">Humidity:</p>
                     </div>
                     <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-title">3/16/2021</h5>
-                            <p class="card-text">Temp:</p>
-                            <p class="card-text">Humidity:</p>
-                        </div>
-                    </div>
-                    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">3/17/2021</h5>
-                            <p class="card-text">Temp:</p>
-                            <p class="card-text">Humidity:</p>
-                        </div>
-                    </div>
-                    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">3/18/2021</h5>
-                            <p class="card-text">Temp:</p>
-                            <p class="card-text">Humidity:</p>
-                        </div>
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">3/19/2021</h5>
-                                <p class="card-text">Temp:</p>
-                                <p class="card-text">Humidity:</p>
-                            </div>
+                            <h5 class="day5-card card-title"></h5>
+                            <p class="temp5 card-text">Temp:</p>
+                            <p class="hum5 card-text">Humidity:</p>
                         </div>
                     </div>
                 </div>
@@ -89,6 +90,7 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 
