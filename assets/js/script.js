@@ -34,6 +34,19 @@ var secondCall = function () {
         if (response.ok) {
             response.json().then(function (data) {
                 $(".badge").text(data.current.uvi)
+                if (data.current.uvi < 3) {
+                    $(".badge")
+                    .removeClass("badge-danger badge-warning")
+                    .addClass("badge-success")
+                } else if (data.current.uvi > 5) {
+                    $(".badge")
+                    .removeClass("badge-success badge-warning")
+                    .addClass("badge-danger")
+                } else {
+                    $(".badge")
+                    .removeClass("badge-success badge-danger")
+                    .addClass("badge-warning")
+                }
                 console.log(data.daily[0].temp.day)
                 console.log(data.daily[0].humidity)
                 // append temp & humidity to forecast cards
