@@ -28,7 +28,12 @@ With everything that is going on right now,
 this feels like traveling and getting a different experience! Go ahead, where have you been missing? Where would you have gone if you could have
 this year? Put it in, and imagine you feel the sun or frost! 
 
+You can see an image here where the next 5 days' dates are dynamically created on cards! Also, a very high UV Index 
+shows red to warn you that these conditions are a concern! They can also be green or yellow.
+
 ![alt text](./assets/images/screenshot.jpg)
+
+![alt text](./assets/images/screenshot2.jpg)
 
 ## Credits
 

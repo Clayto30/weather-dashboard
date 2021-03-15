@@ -47,8 +47,6 @@ var secondCall = function () {
                     .removeClass("badge-success badge-danger")
                     .addClass("badge-warning")
                 }
-                console.log(data.daily[0].temp.day)
-                console.log(data.daily[0].humidity)
                 // append temp & humidity to forecast cards
                 $(".temp1").append(" " + data.daily[0].temp.day + "F")
                 $(".hum1").append(" " + data.daily[0].humidity +"%")
