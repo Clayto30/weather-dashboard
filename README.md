@@ -18,7 +18,7 @@ You can find my Weather Dashboard at https://clayto30.github.io/weather-dashboar
 
 ## Installation
 
-My password Generator is deployed from my GitHub Repo https://github.com/Clayto30/Password-Generator
+My password Weather Dashboard is deployed from my GitHub Repo https://github.com/Clayto30/weather-dashboard/
 
 Feel free to head to my website and punch in a city name and press the blue search button! 
 
